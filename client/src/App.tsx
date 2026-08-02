@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { io, Socket } from "socket.io-client";
+import { BACKEND_URL } from "./config";
 import { Achievement, LeaderboardEntry, Player } from "./types";
 import { ACHIEVEMENT_META } from "./achievements";
 
@@ -14,7 +15,7 @@ export default function App() {
   const [scoreGain, setScoreGain] = useState(100);
 
   useEffect(() => {
-    const socket = io();
+    const socket = io(BACKEND_URL);
     socketRef.current = socket;
 
     socket.on("leaderboard:update", (data: LeaderboardEntry[]) => setBoard(data));

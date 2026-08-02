@@ -32,6 +32,17 @@ npm install
 npm run dev          # http://localhost:5173
 ```
 
+## Deploy
+
+### Backend (Render)
+O repositório já contém `render.yaml` (blueprint). Basta:
+1. Importar o repo `devkroz/game-leaderboard` no [Render](https://render.com)
+2. Selecionar **Blueprint** → o serviço `game-leaderboard-server` é criado
+3. Copiar a URL gerada (ex.: `https://game-leaderboard-server.onrender.com`)
+
+### Frontend (Netlify)
+O `netlify.toml` já aponta para `client/dist`. Defina a variável `VITE_API_URL` com a URL do backend acima.
+
 ## Requisitos
 - Node.js 18+
 - Redis (opcional — há fallback em memória)
